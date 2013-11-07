@@ -7,13 +7,14 @@
 </p>
 
 <div class="pure-g-r">
-	<div class="img-thumb" ng-repeat="img in images">
-		<img ng-src="{{img.image.thumbnailLink}}" width="32"/>
+	<div class="img-thumb darken-{{img.darken}} selected-{{img.selected}}" ng-repeat="img in images" ng-mouseenter="mouseHover(img)" ng-mouseleave="mouseLeave(img)" ng-click="selectToggle(img)">
+		<img ng-src="{{img.image.thumbnailLink}}" width="32" >
 	</div>
 </div>
 
 
 <!-- <button class="pure-button">Show more images</button> -->
+<br>
 <button class="pure-button pure-button-primary" ng-click="">Submit</button>
 
 </div>

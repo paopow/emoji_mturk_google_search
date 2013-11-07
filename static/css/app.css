@@ -109,4 +109,15 @@ input.rating-scale{
   cursor: pointer
 }
 
+.darken-true{
+  background-color: #cccccc;
+}
+
+.selected-true{
+  border: 2px solid #aaaaaa;
+  background-color: #cccccc;
+}
+
+
+
 

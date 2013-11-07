@@ -22,5 +22,23 @@ appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$
       $scope.images = data.items;
     });
 
+    $scope.mouseHover = function(item){
+      console.log("hover!");
+      item.darken = true;
+
+    }
+
+    $scope.mouseLeave = function(item){
+      item.darken = false;
+    }
+
+    $scope.selectToggle = function(item){
+      if(item.selected == undefined){
+        item.selected = true;
+      } else{
+        item.selected = !item.selected
+      }
+    }
+
 }]);
 
