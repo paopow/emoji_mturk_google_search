@@ -1,11 +1,34 @@
 <div>
 
 <h1>Selecting images for an emoji</h1>
+
+<div class="gray-box">
+	Examples for keyword "Sheep"
+	<div class="pure-g-r">
+		<div class="pure-u-1-2">
+			<div class="l-box">
+				<h3>Good emoji</h3>
+				<img src="static/img/good_sheep.gif">
+				<img src="static/img/good_sheep2.jpeg">
+
+			</div>
+		</div>
+		<div class="pure-u-1-2">
+			<div class="l-box">
+				<h3>Bad emoji</h3>
+				<img src="static/img/bad_sheep.jpeg" width="32">
+				<img src="static/img/bad_sheep2.jpeg" width="32">
+			</div>
+		</div>
+	</div>
+</div>
+
 <h2>Keyword: Unicorn</h2> <!--TODO: bind the keyword -->
 <p class="big-leading">
 	From the gallery below, select two images that best match the keyword above. The image should be <strong>instantly recognizable</strong> as a representation of the keyword.
 </p>
 <hr>
+
 
 <div class="pure-g-r">
 	<div class="img-thumb darken-{{img.darken}} selected-{{img.selected}}" ng-repeat="img in images" ng-mouseenter="mouseHover(img)" ng-mouseleave="mouseLeave(img)" ng-click="selectToggle(img)">
@@ -17,6 +40,8 @@
 
 <!-- <button class="pure-button">Show more images</button> -->
 <br>
-<button class="pure-button pure-button-primary" ng-click="">Submit</button>
+<form ng-submit="submitTask()">
+	<button class="pure-button pure-button-primary" ng-click="">Submit</button>
+</form>
 
 </div>

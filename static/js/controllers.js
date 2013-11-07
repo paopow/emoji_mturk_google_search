@@ -18,7 +18,7 @@ appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$
   	function($scope,$routeParams,$window, $http){
 
     $scope.images = [];
-    $http.get('static/data/images_url.json').success(function(data){
+    $http.get('static/data/images_url_marx.json').success(function(data){
       $scope.images = data;
     });
 
@@ -33,11 +33,11 @@ appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$
       console.log("hover!");
       item.darken = true;
 
-    }
+    };
 
     $scope.mouseLeave = function(item){
       item.darken = false;
-    }
+    };
 
     $scope.selectToggle = function(item){
       if(item.selected == undefined){
@@ -45,6 +45,10 @@ appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$
       } else{
         item.selected = !item.selected
       }
+    };
+
+    $scope.submitTask = function(){
+      console.log("Submit!");
     }
 
 }]);

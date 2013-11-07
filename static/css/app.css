@@ -115,8 +115,8 @@ input.rating-scale{
 }
 
 .selected-true{
-  border: 2px solid #aaaaaa;
-  background-color: #cccccc;
+  /*border: 2px solid #aaaaaa;*/
+  background-color: #aaaaaa;
 }
 
 
