@@ -3,17 +3,17 @@
 <h1>Selecting images for an emoji</h1>
 <h2>Keyword: Unicorn</h2> <!--TODO: bind the keyword -->
 <p class="big-leading">
-	From the gallery below, select three images that best match the keyword above. 
+	From the gallery below, select two images that best match the keyword above. The image should be <strong>instantly recognizable</strong> as a representation of the keyword.
 </p>
 
 <div class="pure-g-r">
-	<div class="pure-u-1-5" ng-repeat="img in images">
-		<img ng-src="{{img.url}}" />
+	<div class="img-thumb" ng-repeat="img in images">
+		<img ng-src="{{img.image.thumbnailLink}}" width="32"/>
 	</div>
 </div>
 
 
-<button class="pure-button">Show more images</button>
+<!-- <button class="pure-button">Show more images</button> -->
 <button class="pure-button pure-button-primary" ng-click="">Submit</button>
 
 </div>

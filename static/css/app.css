@@ -103,4 +103,10 @@ input.rating-scale{
   color: #08c;
 }
 
+.img-thumb{
+  max-width: 150px;
+  padding:5px;
+  cursor: pointer
+}
+
 
