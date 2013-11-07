@@ -1,0 +1,19 @@
+<div>
+
+<h1>Selecting images for an emoji</h1>
+<h2>Keyword: Unicorn</h2> <!--TODO: bind the keyword -->
+<p class="big-leading">
+	From the gallery below, select three images that best match the keyword above. 
+</p>
+
+<div class="pure-g-r">
+	<div class="pure-u-1-5" ng-repeat="img in images">
+		<img ng-src="{{img.url}}" />
+	</div>
+</div>
+
+
+<button class="pure-button">Show more images</button>
+<button class="pure-button pure-button-primary" ng-click="">Submit</button>
+
+</div>

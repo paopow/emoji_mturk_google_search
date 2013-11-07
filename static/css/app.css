@@ -1,0 +1,106 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}
+
+
+.content {
+  margin: 0 auto;
+  
+  max-width: 800px;
+  margin-bottom: 50px;
+}
+
+
+.l-box{
+  padding: 0 1em;
+}
+
+.gray-box{
+  background-color: rgb(242,242,242);
+  background-clip: border-box;
+  border-style:solid;
+  border-color: rgb(232,232,232);
+  border-width: 1px;
+  color: rgb(51, 51, 51);
+  margin-bottom: 16px;
+  margin-top: 20px;
+  padding: 21px;
+  padding-top:10px;
+}
+
+.pure-button-small {
+    font-size: 85%;
+}
+
+.big-caption {
+  font-family: 'Libre Baskerville', serif;
+  font-size:24px;
+  text-align: center;
+}
+
+.small-caption {
+  font-family: 'Libre Baskerville', serif;
+  font-size:18px;
+  text-align:center;
+
+}
+
+.caption-list ol li{
+  font-family: sans-serif;
+}
+
+input.rating-scale{
+  margin-right:10px;
+  margin-left:10px;
+}
+
+#rating-form{
+  padding:0px;
+  text-align:center;
+}
+
+.big-leading p{
+  font-size: 24px; 
+}
+
+.big-leading h1{
+  font-size:42px;
+}
+
+.big-leading button{
+  font-size:14px;
+}
+
+.why-link{
+  cursor: pointer;
+  color: #08c;
+}
+
+

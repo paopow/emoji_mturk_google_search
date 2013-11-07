@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+<head>
+  <meta charset="utf-8">
+  <title>Give me an emoji!</title>
+  <link rel="stylesheet" href={{ url_for("emoji.static", filename="css/pure-min.css")}}>
+  <link rel="stylesheet" href={{url_for("emoji.static",filename="css/app.css")}}/>
+  <!-- <link href='http://fonts.googleapis.com/css?family=Libre+Baskerville:400italic' rel='stylesheet' type='text/css'> -->
+</head>
+<body>
+<!--   <ul class="menu">
+    <li><a href="#/rawData">Raw data</a></li>
+    <li><a href="#/landing">Landing page</a></li>
+    <li><a href="#/taskDescription">Task desc</a></li>
+    <li><a href="#/concept">Concept</a></li>
+    <li><a href="#/generate1">Generate</a></li>
+    <li><a href="#/diversityCat">Categorize</a></li>
+    <li><a href="#/diversitySim">Diversity similarity</a></li>
+    <li><a href="#/evalRating">Eval rating</a></li>
+    <li><a href="#/evalRanking">Eval ranking</a></li>
+    <li><a href="#/demographic">Demographic</a></li>
+    <li><a href="#/report">Report</a></li>
+    <li><a href="#/">Whole experiment</a></li>
+  </ul> -->
+
+  <div class="content" ng-view></div>
+
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+  -->
+
+  <script src={{ url_for("emoji.static", filename="lib/angular/angular.js")}}></script>
+  <script src={{ url_for("emoji.static", filename="lib/angular/angular-route.js")}}></script>
+  <script src={{ url_for("emoji.static", filename="js/app.js")}}></script>
+  <script src={{ url_for("emoji.static", filename="js/services.js")}}></script>
+  <script src={{ url_for("emoji.static", filename="js/controllers.js")}}></script>
+  <script src={{ url_for("emoji.static", filename="js/filters.js")}}></script>
+  <script src={{ url_for("emoji.static", filename="js/directives.js")}}></script>
+</body>
+</html>
