@@ -11,17 +11,21 @@ function getSearchUrl(query, start){
   return url;
 }
 
+
 var appModule = angular.module('myApp.controllers', []);
 
 appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$http',
   	function($scope,$routeParams,$window, $http){
 
-    var url = getSearchUrl('unicorn',1)
-    console.log(url);
-    $http.get(url).success(function(data) {
-      $scope.images = data.items;
-    });
+    $scope.images = [];
 
+    for (var i = 0; i < 10; i++){
+      $http.get(getSearchUrl('unicorn',10*i+1)).success(function(data) {
+        $scope.images = $scope.images.concat(data.items);
+      });
+
+    }
+  
     $scope.mouseHover = function(item){
       console.log("hover!");
       item.darken = true;
