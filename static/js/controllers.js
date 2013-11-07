@@ -3,7 +3,7 @@
 /* Controllers */
 function getSearchUrl(query, start){
   // TODO: right now query is just one keyword
-  var key = "AIzaSyDGpSyNvR1PEyuWnVn0SPQv_yeXhFdDEmg";
+  var key = "AIzaSyAGSyPVoP7tTL72hZxvgqBNgIrAk1k4ENw";
   var cx = "012731003498980769240%3Adzypydvp2lc";
   var searchtype = "image";
   var imgsz = "icon";
@@ -18,13 +18,16 @@ appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$
   	function($scope,$routeParams,$window, $http){
 
     $scope.images = [];
+    $http.get('static/data/images_url.json').success(function(data){
+      $scope.images = data;
+    });
 
-    for (var i = 0; i < 10; i++){
-      $http.get(getSearchUrl('unicorn',10*i+1)).success(function(data) {
-        $scope.images = $scope.images.concat(data.items);
-      });
+    // for (var i = 0; i < 3; i++){
+    //   $http.get(getSearchUrl('unicorn',10*i+1)).success(function(data) {
+    //     $scope.images = $scope.images.concat(data.items);
+    //   });
 
-    }
+    // }
   
     $scope.mouseHover = function(item){
       console.log("hover!");
