@@ -71,7 +71,7 @@ appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$
         alert("Please select only three best images. No more. No less.");
       }else{
         var endTime = Date.now();
-        var data = {
+        var results = {
           'assignmentId': assignmentId,
           'workerId': workerId,
           'hitId': hitId,
@@ -79,16 +79,21 @@ appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$
           'startTime': startTime,
           'endTime': endTime
         };
-        data['images'] = $scope.images.filter(function(x){
+        results['images'] = $scope.images.filter(function(x){
           return x.selected;
+        });
+
+        //save file
+        $http.post("/emoji/save_json", results).success(function(data){
+            //Callback function here.
+            //"data" is the response from the server.
+            alert(data);
         });
 
         var mturk = 'http://www.mturk.com/mturk/externalSubmit?assignmentId=';
         var url = mturk + assignmentId + '&q='+hashtag + '&start='+startTime+'&endTime'+endTime;
         alert(url);
-        $window.location.href = url;
-        // $location.path('http://stackoverflow.com/questions/14841088/how-to-redirect-in-angularjs');
-        // $location.path('http://www.mturk.com/mturk/externalSubmit')
+        // $window.location.href = url;
         
         //save file
         //submit to mturk
