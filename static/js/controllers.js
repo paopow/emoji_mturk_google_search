@@ -30,19 +30,12 @@ appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$
           'file':'images_url_blonde.json'
         }
       };
+    $scope.numSelected = 0;
     $scope.keyword = keywordTable[$routeParams.keyword]['key'];
     $scope.images = [];
     $http.get('static/data/'+keywordTable[$routeParams.keyword]['file']).success(function(data){
       $scope.images = data;
     });
-
-    // for (var i = 0; i < 3; i++){
-    //   $http.get(getSearchUrl('unicorn',10*i+1)).success(function(data) {
-    //     $scope.images = $scope.images.concat(data.items);
-    //   });
-
-    // }
-
 
   
     $scope.mouseHover = function(item){
@@ -58,8 +51,14 @@ appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$
     $scope.selectToggle = function(item){
       if(item.selected == undefined){
         item.selected = true;
+        $scope.numSelected = $scope.numSelected + 1;
       } else{
         item.selected = !item.selected
+        if(item.selected){
+          $scope.numSelected = $scope.numSelected+1;
+        }else{
+          $scope.numSelected = $scope.numSelected-1;
+        }
       }
     };
 
