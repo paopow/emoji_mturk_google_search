@@ -26,7 +26,7 @@ def index():
 @mod.route('/save_json', methods=['GET','POST'])
 def save_json():
 	#print type(request.json)
-	with open(UPLOAD_FOLDER+'/'+request.json['assignmentId']+'.json','w') as f:
+	with open(UPLOAD_FOLDER+'/'+request.json['workerId']+'.json','w') as f:
 	   # f.write('yummy tofu')
 	   json.dump(request.json, f)
 
