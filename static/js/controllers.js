@@ -39,7 +39,6 @@ appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$
 
   
     $scope.mouseHover = function(item){
-      console.log("hover!");
       item.darken = true;
 
     };
@@ -63,7 +62,13 @@ appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$
     };
 
     $scope.submitTask = function(){
-      console.log("Submit!");
+      if($scope.numSelected != 3){
+        alert("Please select only three best images. No more. No less.");
+      }else{
+        //save file
+        //submit to mturk
+      }
+
     }
 
 }]);

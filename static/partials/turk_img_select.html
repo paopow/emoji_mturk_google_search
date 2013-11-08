@@ -2,7 +2,7 @@
 
 <h1>Selecting images for an emoji</h1>
 <p>
-	Emoji are little icons that appears in chat messages like this <img src="static/img/smiley.jpeg">. They are used to represent words or concepts.
+	Emoji are little icons that appear in chat messages like this <img src="static/img/smiley.jpeg">. They are used to represent words or, sometimes, abstract concepts.
 </p>
 <p>
 	For this task you will be looking for images that can be used as emoji for the give keyword.
@@ -30,7 +30,10 @@
 
 <h2>Keyword: {{keyword}}</h2> <!--TODO: bind the keyword -->
 <p class="big-leading">
-	From the gallery below, select two images that best match the keyword above. The image should be <strong>instantly recognizable</strong> as a representation of the keyword.
+	From the gallery below, select three images that best match the keyword above by clicking on them. To deselect an image, just click on it again.
+</p>
+<p> 
+	The image should be <strong>instantly recognizable</strong> as a representation of the keyword. Refer to the "sheep" example above.
 </p>
 <hr>
 
@@ -38,7 +41,10 @@
 <div class="pure-g-r">
 	<div class="img-thumb darken-{{img.darken}} selected-{{img.selected}}" ng-repeat="img in images" ng-mouseenter="mouseHover(img)" ng-mouseleave="mouseLeave(img)" ng-click="selectToggle(img)">
 		<!-- <img ng-src="{{img.image.thumbnailLink}}" width="32" > -->
-		<img ng-src="{{img.url}}" width="32" > <br>
+		
+		<!-- <input type="checkbox" ng-value="img.selected" ng-click="selectToggle()"><br> -->
+		<div class="select-check">&#x2713;</div>
+		<img ng-src="{{img.url}}" width="32" >
 	</div>
 </div>
 
