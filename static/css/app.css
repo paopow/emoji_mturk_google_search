@@ -107,7 +107,8 @@ input.rating-scale{
   max-width: 150px;
   max-height:150px;
   padding:5px;
-  cursor: pointer
+  cursor: pointer;
+  border: 1px solid #cccccc;
 }
 
 .darken-true{
@@ -116,7 +117,7 @@ input.rating-scale{
 
 .selected-true{
   /*border: 2px solid #aaaaaa;*/
-  background-color: #aaaaaa;
+  background-color: red;
 }
 
 

@@ -11,7 +11,7 @@ var myApp = angular.module('myApp', [
 ]).
 config(['$routeProvider', function($routeProvider) {
 
-  $routeProvider.when('/',{
+  $routeProvider.when('/:keyword',{
     templateUrl:'static/partials/turk_img_select.html',
     controller: 'TurkImgSelectCtrl'
   });
