@@ -84,19 +84,26 @@ appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$
         });
 
         //save file
-        $http.post("/emoji/save_json", results).success(function(data){
-            //Callback function here.
-            //"data" is the response from the server.
-            alert(data);
-        });
+        // $http.post("/emoji/save_json", results).success(function(data){
+        //     //Callback function here.
+        //     //"data" is the response from the server.
+        //     alert(data);
+        // });
+        $http({
+                url: '/emoji/save_json',
+                method: "POST",
+                data: JSON.stringify(results),
+                headers: {'Content-Type': 'application/json'}
+              }).success(function (data) {
+                  if(data=="success"){
+                    var mturk = 'http://www.mturk.com/mturk/externalSubmit?assignmentId=';
+                    var url = mturk + assignmentId + '&q='+hashtag + '&start='+startTime+'&endTime'+endTime;
+                    $window.location.href = url;
+                  }else{
+                    alert("There was an error on our server. Please try submit again.");
+                  }
+              });
 
-        var mturk = 'http://www.mturk.com/mturk/externalSubmit?assignmentId=';
-        var url = mturk + assignmentId + '&q='+hashtag + '&start='+startTime+'&endTime'+endTime;
-        alert(url);
-        // $window.location.href = url;
-        
-        //save file
-        //submit to mturk
       }
 
     }
