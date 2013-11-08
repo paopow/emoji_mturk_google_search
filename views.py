@@ -10,3 +10,14 @@ mod = Blueprint('emoji', __name__, template_folder='templates', static_folder='s
 @mod.route('/')
 def index():
 	return render_template('index.html')
+
+# @mod.route('/save_json', methods=['GET','POST'])
+# def save_json():
+# 	f = open('test_lala.txt', 'w')
+# 	#f.write(request.args['assignmentId'])
+# 	#f.close()
+# 	print request.args.get('assignmentId', '')
+# 	print type(request.args['assignmentId'])
+# 	for key,value in request.args.iteritems():
+# 		print key,":",value
+# 	return "hi"

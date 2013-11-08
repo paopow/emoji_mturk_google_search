@@ -14,8 +14,8 @@ function getSearchUrl(query, start){
 
 var appModule = angular.module('myApp.controllers', []);
 
-appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$http',
-  	function($scope,$routeParams,$window, $http){
+appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$http','$location',
+  	function($scope,$routeParams,$window, $http, $location){
       var keywordTable = {
         'unicorn': {
           'key':'Unicorn',
@@ -30,10 +30,15 @@ appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$
           'file':'images_url_blonde.json'
         }
       };
+    var startTime = Date.now();
+    var assignmentId = $routeParams.assignmentId;
+    var hitId = $routeParams.hitId;
+    var workerId = $routeParams.workerId;
     $scope.numSelected = 0;
-    $scope.keyword = keywordTable[$routeParams.keyword]['key'];
+    var hashtag = $routeParams.keyword;
+    $scope.keyword = keywordTable[hashtag]['key'];
     $scope.images = [];
-    $http.get('static/data/'+keywordTable[$routeParams.keyword]['file']).success(function(data){
+    $http.get('static/data/'+keywordTable[hashtag]['file']).success(function(data){
       $scope.images = data;
     });
 
@@ -65,6 +70,26 @@ appModule.controller('TurkImgSelectCtrl', ['$scope','$routeParams','$window', '$
       if($scope.numSelected != 3){
         alert("Please select only three best images. No more. No less.");
       }else{
+        var endTime = Date.now();
+        var data = {
+          'assignmentId': assignmentId,
+          'workerId': workerId,
+          'hitId': hitId,
+          'keyword': $scope.keyword,
+          'startTime': startTime,
+          'endTime': endTime
+        };
+        data['images'] = $scope.images.filter(function(x){
+          return x.selected;
+        });
+
+        var mturk = 'http://www.mturk.com/mturk/externalSubmit?assignmentId=';
+        var url = mturk + assignmentId + '&q='+hashtag + '&start='+startTime+'&endTime'+endTime;
+        alert(url);
+        $window.location.href = url;
+        // $location.path('http://stackoverflow.com/questions/14841088/how-to-redirect-in-angularjs');
+        // $location.path('http://www.mturk.com/mturk/externalSubmit')
+        
         //save file
         //submit to mturk
       }
